@@ -121,6 +121,13 @@ if (isset($_GET['action']) && in_array($_GET['action'], $actions)) {
             <div class="col-md-6">
                 {{price}} euro
             </div>
+
+            <form method="POST" action="?action=buy">
+                <input type="hidden" name="event_id" value="1" />
+                <input type="hidden" name="seat" value="{{row}}{{seat}}" />
+
+                <input type="submit" value="Jetzt zahlungspflicht bestellen" />
+            </form>
         </div>
     </script>
   </body>
