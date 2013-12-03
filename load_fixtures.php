@@ -17,6 +17,8 @@ class LoadTicketingData implements FixtureInterface
 
         $manager->persist($room);
 
+        $prices = array('vip' => 15, 'box' => 12, 'normal' => 10);
+
         for ($i = 0; $i < 15; $i++) {
             $row = new Ticketing\RoomRows();
             $row->setRoom($room);
@@ -28,6 +30,17 @@ class LoadTicketingData implements FixtureInterface
                 $seat = new Ticketing\RoomRowsSeats();
                 $seat->setSeatNumber(chr(65 + $i) . ($j+1));
                 $seat->setRow($row);
+
+                if ($i > 13) {
+                    $category = "vip";
+                } else if ($i > 9 && abs($j - 10) > 8) {
+                    $category = "box";
+                } else {
+                    $category = "normal";
+                }
+
+                $seat->setCategory($category);
+                $seat->setPrice($prices[$category]);
 
                 $manager->persist($seat);
             }

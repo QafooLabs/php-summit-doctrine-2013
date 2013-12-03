@@ -7,6 +7,16 @@ if (in_array($ext, $extensions)) {
     // let the server handle the request as-is
     return false;
 }
+
+$actions = array(
+    'roomplan'
+);
+
+if (isset($_GET['action']) && in_array($_GET['action'], $actions)) {
+    require_once $_GET['action'] . ".php";
+    exit;
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">

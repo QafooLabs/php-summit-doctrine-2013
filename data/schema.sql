@@ -26,6 +26,8 @@ CREATE TABLE room_rows_seats (
     id INT(11) AUTO_INCREMENT PRIMARY KEY,
     row_id INT(11),
     seat_number VARCHAR(10),
+    category VARCHAR(10),
+    price DECIMAL(10,2),
     FOREIGN KEY (row_id) REFERENCES room_rows (id)
 ) ENGINE=INNODB;
 

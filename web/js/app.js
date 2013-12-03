@@ -18,7 +18,8 @@ $(document).ready(function() {
         }
     });
 
-    var roomplanRequest = $.getJSON("data/roomplan.json");
+    //var roomplanRequest = $.getJSON("data/roomplan.json");
+    var roomplanRequest = $.getJSON("?action=roomplan");
 
     $.when(roomplanRequest).done(function(roomplanData) {
         var roomplan = $("[data-role='roomplan']").roomplan({
