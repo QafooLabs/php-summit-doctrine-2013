@@ -1,0 +1,10 @@
+{
+    "require": {
+        "doctrine/orm": "@stable"
+    },
+    "autoload": {
+        "psr-0": {
+            "Ticketing": "src/"
+        }
+    }
+}
