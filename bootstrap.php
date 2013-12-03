@@ -1,7 +1,6 @@
 <?php
 
 require_once "vendor/autoload.php";
-require_once "src/MonologLogger.php";
 
 use Doctrine\ORM\Tools\Setup;
 use Doctrine\ORM\EntityManager;
