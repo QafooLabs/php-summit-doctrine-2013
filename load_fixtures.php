@@ -50,6 +50,8 @@ class LoadTicketingData implements FixtureInterface
         $event->setName("PHP Summit Berlin 2013");
         $event->setStartTime(new \DateTime('2013-12-02 09:00:00'));
 
+        $manager->persist($event);
+
         $manager->flush();
     }
 }

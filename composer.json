@@ -1,7 +1,8 @@
 {
     "require": {
         "doctrine/orm": "@stable",
-        "doctrine/data-fixtures": "@stable"
+        "doctrine/data-fixtures": "@stable",
+        "monolog/monolog": "@stable"
     },
     "autoload": {
         "psr-0": {
