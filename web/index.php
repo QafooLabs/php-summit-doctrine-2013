@@ -9,7 +9,8 @@ if (in_array($ext, $extensions)) {
 }
 
 $actions = array(
-    'roomplan'
+    'roomplan',
+    'buy'
 );
 
 if (isset($_GET['action']) && in_array($_GET['action'], $actions)) {
