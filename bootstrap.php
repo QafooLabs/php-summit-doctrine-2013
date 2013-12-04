@@ -18,7 +18,7 @@ $dbParams = array(
 );
 
 #$config = Setup::createAnnotationMetadataConfiguration($paths, $isDevMode);
-$config = Setup::createXmlMetadataConfiguration(array('config'), $isDevMode);
+$config = Setup::createXmlMetadataConfiguration(array(__DIR__ .'/config'), $isDevMode);
 $config->setSQLLogger(new MonologLogger());
 
 $entityManager = EntityManager::create($dbParams, $config);
