@@ -13,44 +13,11 @@ class LoadTicketingData implements FixtureInterface
     public function load(ObjectManager $manager)
     {
         $room = new Ticketing\Room();
-        $room->setName('Raum 3');
+        $row = new Ticketing\Row('A', $room);
+        $row->createSeats(2);
 
+        $manager->persist($row);
         $manager->persist($room);
-
-        $prices = array('vip' => 15, 'box' => 12, 'normal' => 10);
-
-        for ($i = 0; $i < 15; $i++) {
-            $row = new Ticketing\RoomRows();
-            $row->setRoom($room);
-
-            $manager->persist($row);
-
-            for ($j = 0; $j < 20; $j++) {
-
-                $seat = new Ticketing\RoomRowsSeats();
-                $seat->setSeatNumber(chr(65 + $i) . ($j+1));
-                $seat->setRow($row);
-
-                if ($i > 13) {
-                    $category = "vip";
-                } else if ($i > 9 && abs($j - 10) > 8) {
-                    $category = "box";
-                } else {
-                    $category = "normal";
-                }
-
-                $seat->setCategory($category);
-                $seat->setPrice($prices[$category]);
-
-                $manager->persist($seat);
-            }
-        }
-
-        $event = new Ticketing\Event();
-        $event->setName("PHP Summit Berlin 2013");
-        $event->setStartTime(new \DateTime('2013-12-02 09:00:00'));
-
-        $manager->persist($event);
 
         $manager->flush();
     }
